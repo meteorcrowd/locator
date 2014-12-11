@@ -1,23 +1,17 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault("counter", 0);
+    Template.map.rendered = function () {
+        // create a map in the "map" div, set the view to a given place and zoom
+        var map = L.map('map').setView([51.505, -0.09], 13);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get("counter");
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // add a marker in the given location, attach some popup content to it and open the popup
+        L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
+        .openPopup();
     }
-  });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set("counter", Session.get("counter") + 1);
-    }
-  });
-}
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
 }

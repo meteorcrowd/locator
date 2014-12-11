@@ -6,3 +6,9 @@
 meteor-platform
 autopublish
 insecure
+mizzao:bootstrap-3
+accounts-base
+accounts-password
+dcsan:accounts-guest
+fuatsengul:leaflet
+
