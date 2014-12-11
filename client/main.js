@@ -14,7 +14,7 @@ Template.map.rendered = function () {
     .bindPopup('A pretty CSS3 popup. <br> Easily customizable.')
     .openPopup();
 
-    map.locate({setView: true, maxZoom: 16});
+    map.locate({setView: true, maxZoom: 16, watch: true});
 
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
