@@ -1,5 +1,3 @@
-'use strict';
-
 // Set icon directory
 L.Icon.Default.imagePath = 'images';
 
@@ -10,11 +8,11 @@ Template.map.rendered = function () {
     // Add map markers layer group to map
     markers = new L.LayerGroup().addTo(map);
 
-    // create attribution
+    // Configure OpenStreetMap URL and attribution
     var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
-    // Add attribution to map
+    // Add OpenStreetMap layer and attribution to map
     L.tileLayer(osmUrl, {
         attribution: osmAttrib,
         maxZoom: 18
